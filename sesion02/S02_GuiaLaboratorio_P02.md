@@ -1,8 +1,7 @@
 # Estructuras de Programación
 
 ## Objetivo
-
-Desarrollar programas que implementen estructuras de control condicionales y repetitivas, con un enfoque en la declaración y uso de variables, operadores, y la creación de un menú interactivo usando la estructura `switch`.
+Comprender y aplicar las estructuras de programación en Java mediante el uso de variables, operadores, estructuras de control condicionales y repetitivas, y bloques de código. Al finalizar esta práctica, los estudiantes serán capaces de desarrollar programas funcionales que utilicen estas técnicas, incluyendo un menú interactivo.
 
 ---
 

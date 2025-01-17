@@ -1,4 +1,4 @@
-# Estructuras de Programación en Java
+# Estructuras de Programación
 
 ## Objetivo
 Comprender y aplicar las estructuras de programación en Java mediante el uso de variables, operadores, estructuras de control condicionales y repetitivas, y bloques de código. Al finalizar esta práctica, los estudiantes serán capaces de desarrollar programas funcionales que utilicen estas técnicas, incluyendo un menú interactivo.
