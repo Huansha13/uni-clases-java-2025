@@ -225,3 +225,93 @@ public class MenuInteractivo {
     }
 }
 ```
+
+## Actividad 6: Comparación de Números
+
+**Enunciado:** Compara dos números e indica cuál es mayor o si son iguales.  
+**Requerimiento:** El programa debe solicitar dos números al usuario y compararlos.
+
+```java
+import java.util.Scanner;
+
+public class ComparacionNumeros {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduce el primer número: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Introduce el segundo número: ");
+        int num2 = scanner.nextInt();
+
+        if (num1 > num2) {
+            System.out.println(num1 + " es mayor que " + num2);
+        } else if (num1 < num2) {
+            System.out.println(num2 + " es mayor que " + num1);
+        } else {
+            System.out.println("Ambos números son iguales.");
+        }
+    }
+}
+```
+
+### Actividad 7: Creación de un Menú Interactivo con `switch`
+**Objetivo:** Usar la estructura de control `switch` para crear un menú interactivo.
+
+**Instrucciones:**
+1. Crea una clase llamada `MenuInteractivo`.
+2. Implementa un menú con las siguientes opciones:
+   - Sumar dos números.
+   - Calcular el factorial de un número.
+   - Salir.
+3. Usa un bucle `do-while` para que el menú siga activo hasta que el usuario elija salir.
+
+#### Código sugerido:
+```java
+import java.util.Scanner;
+
+public class MenuInteractivo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+
+        do {
+            System.out.println("Menú Principal:");
+            System.out.println("1. Sumar dos números");
+            System.out.println("2. Calcular factorial");
+            System.out.println("3. Salir");
+            System.out.print("Elige una opción: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingresa el primer número: ");
+                    int num1 = scanner.nextInt();
+                    System.out.print("Ingresa el segundo número: ");
+                    int num2 = scanner.nextInt();
+                    System.out.println("Resultado: " + (num1 + num2));
+                    break;
+                case 2:
+                    System.out.print("Ingresa un número: ");
+                    int num = scanner.nextInt();
+                    int factorial = 1;
+                    for (int i = 1; i <= num; i++) {
+                        factorial *= i;
+                    }
+                    System.out.println("Factorial: " + factorial);
+                    break;
+                case 3:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intenta de nuevo.");
+            }
+        } while (opcion != 3);
+
+        scanner.close();
+    }
+}
+```
+
+**Resultado Esperado:** Un menú interactivo que permita realizar las operaciones seleccionadas hasta que el usuario elija salir.
+
+---
+
