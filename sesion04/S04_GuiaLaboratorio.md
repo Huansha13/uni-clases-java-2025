@@ -1,4 +1,4 @@
-# Ejercicios - Sobrecarga de Métodos y Constructores
+# Sobrecarga de Métodos y Constructores
 
 ## Objetivo
 Practicar la sobrecarga de métodos y constructores, así como su implementación en programas con aplicaciones prácticas.
