@@ -388,3 +388,171 @@ public class PruebaCuenta {
     }
 }
 ```
+
+# Creación de Programas con Clases, Atributos y Métodos
+
+## Conceptos Clave
+
+En la programación orientada a objetos, una **clase** es un modelo que define atributos (características) y métodos (acciones) de un objeto. Un **objeto** es una instancia de una clase.
+
+### Ejemplo de una Clase en Java
+
+```java
+// Definición de la clase Producto
+class Producto {
+    // Atributos
+    String nombre;
+    double precio;
+    int cantidad;
+    
+    // Constructor
+    public Producto(String nombre, double precio, int cantidad) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+    
+    // Método para calcular el valor total del stock
+    public double calcularValorStock() {
+        return precio * cantidad;
+    }
+    
+    // Método para mostrar información del producto
+    public void mostrarInformacion() {
+        System.out.println("Producto: " + nombre + ", Precio: " + precio + ", Cantidad: " + cantidad);
+    }
+}
+```
+
+### Creación e Instanciación de Objetos
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Creación de un objeto de la clase Producto
+        Producto producto1 = new Producto("Laptop", 1200.50, 5);
+        
+        // Llamada a un método del objeto
+        producto1.mostrarInformacion();
+        System.out.println("Valor del stock: " + producto1.calcularValorStock());
+    }
+}
+```
+
+### Ejercicio 6: Clase Coche
+
+```java
+class Coche {
+    String marca;
+    String modelo;
+    int anio;
+    int velocidad;
+
+    public Coche(String marca, String modelo, int anio) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anio = anio;
+        this.velocidad = 0;
+    }
+
+    public void acelerar(int incremento) {
+        velocidad += incremento;
+    }
+
+    public void frenar(int decremento) {
+        velocidad = Math.max(0, velocidad - decremento);
+    }
+
+    public void mostrarDetalles() {
+        System.out.println("Marca: " + marca + ", Modelo: " + modelo + ", Año: " + anio + ", Velocidad: " + velocidad + " km/h");
+    }
+}
+```
+
+### Ejercicio 7: Clase CuentaBancaria
+
+```java
+class CuentaBancaria {
+    String titular;
+    double saldo;
+
+    public CuentaBancaria(String titular, double saldo) {
+        this.titular = titular;
+        this.saldo = saldo;
+    }
+
+    public void depositar(double cantidad) {
+        saldo += cantidad;
+    }
+
+    public void retirar(double cantidad) {
+        if (cantidad <= saldo) {
+            saldo -= cantidad;
+        } else {
+            System.out.println("Saldo insuficiente");
+        }
+    }
+
+    public void mostrarSaldo() {
+        System.out.println("Titular: " + titular + ", Saldo: " + saldo);
+    }
+}
+```
+
+### Ejercicio 8: Clase Estudiante
+
+```java
+class Estudiante {
+    String nombre;
+    int edad;
+    double[] calificaciones;
+
+    public Estudiante(String nombre, int edad, double[] calificaciones) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.calificaciones = calificaciones;
+    }
+
+    public double calcularPromedio() {
+        double suma = 0;
+        for (double nota : calificaciones) {
+            suma += nota;
+        }
+        return suma / calificaciones.length;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Nombre: " + nombre + ", Edad: " + edad + ", Promedio: " + calcularPromedio());
+    }
+}
+```
+
+### Ejercicio 9: Clase Restaurante
+
+```java
+class Restaurante {
+    String nombre;
+    String tipoComida;
+    double calificacion;
+    int capacidad;
+
+    public Restaurante(String nombre, String tipoComida, double calificacion, int capacidad) {
+        this.nombre = nombre;
+        this.tipoComida = tipoComida;
+        this.calificacion = calificacion;
+        this.capacidad = capacidad;
+    }
+
+    public boolean verificarDisponibilidad(int personas) {
+        return personas <= capacidad;
+    }
+}
+```
+
+### Ejercicios
+
+1. **Clase Película**: Implementa una clase `Pelicula` con `titulo`, `director` y `duracion`. Incluye un método para mostrar la duración en horas y minutos.
+2. **Clase Tienda**: Crea una clase `Tienda` con `nombre`, `ubicacion` y `inventario`. Implementa un método para agregar productos al inventario.
+3. **Clase Vehículo**: Define una clase `Vehiculo` con `tipo`, `color` y `velocidadMaxima`. Agrega métodos para acelerar y frenar.
+4. **Clase Empleado**: Implementa una clase `Empleado` con `nombre`, `salario` y `puesto`. Agrega un método para calcular el salario anual con bonificaciones.
+5. **Clase Animal**: Crea una clase `Animal` con `especie`, `peso` y `habitat`. Incluye métodos para alimentar y cambiar el hábitat del animal.

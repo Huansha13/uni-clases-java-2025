@@ -5,6 +5,84 @@ Practicar la sobrecarga de métodos y constructores, así como su implementació
 
 ---
 
+
+## Conceptos Clave
+
+La **sobrecarga** de métodos y constructores permite definir múltiples métodos con el mismo nombre, pero con diferentes parámetros. Esto mejora la reutilización del código y la flexibilidad de las clases.
+
+### Ejemplo de Sobrecarga de Métodos
+
+```java
+class Calculadora {
+    // Método para sumar dos números enteros
+    public int sumar(int a, int b) {
+        return a + b;
+    }
+
+    // Método sobrecargado para sumar tres números enteros
+    public int sumar(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Método sobrecargado para sumar números decimales
+    public double sumar(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculadora calc = new Calculadora();
+        System.out.println("Suma de dos enteros: " + calc.sumar(5, 3));
+        System.out.println("Suma de tres enteros: " + calc.sumar(5, 3, 2));
+        System.out.println("Suma de decimales: " + calc.sumar(5.5, 2.3));
+    }
+}
+```
+
+### Ejemplo de Sobrecarga de Constructores
+
+```java
+class Persona {
+    String nombre;
+    int edad;
+
+    // Constructor sin parámetros
+    public Persona() {
+        this.nombre = "Desconocido";
+        this.edad = 0;
+    }
+
+    // Constructor con un parámetro
+    public Persona(String nombre) {
+        this.nombre = nombre;
+        this.edad = 0;
+    }
+
+    // Constructor con dos parámetros
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Nombre: " + nombre + ", Edad: " + edad);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Persona p1 = new Persona();
+        Persona p2 = new Persona("Carlos");
+        Persona p3 = new Persona("Ana", 25);
+
+        p1.mostrarInformacion();
+        p2.mostrarInformacion();
+        p3.mostrarInformacion();
+    }
+}
+```
+
 ## Ejercicio 1: Sobrecarga de Métodos para Suma
 **Instrucciones:**
 1. Crea una clase llamada `Calculadora`.
@@ -248,6 +326,273 @@ public class PruebaEmpleado {
         e1.mostrarInfo();
         e2.mostrarInfo();
         e3.mostrarInfo();
+    }
+}
+```
+
+## Ejercicio 7: Clase Vehículo
+
+```java
+class Vehiculo {
+    String marca;
+    String modelo;
+    int velocidad;
+
+    public Vehiculo() {
+        this.marca = "Desconocida";
+        this.modelo = "Desconocido";
+        this.velocidad = 0;
+    }
+
+    public Vehiculo(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidad = 0;
+    }
+
+    public Vehiculo(String marca, String modelo, int velocidad) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidad = velocidad;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Marca: " + marca + ", Modelo: " + modelo + ", Velocidad: " + velocidad + " km/h");
+    }
+}
+```
+
+## Ejercicio 8: Clase Producto
+
+```java
+class Producto {
+    String nombre;
+    double precio;
+
+    public Producto() {
+        this.nombre = "Producto Genérico";
+        this.precio = 0.0;
+    }
+
+    public Producto(String nombre) {
+        this.nombre = nombre;
+        this.precio = 0.0;
+    }
+
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    public void mostrarProducto() {
+        System.out.println("Nombre: " + nombre + ", Precio: " + precio);
+    }
+}
+```
+
+## Ejercicio 9: Clase Estudiante
+
+Implementar una clase `Estudiante` con sobrecarga de constructores para manejar distintas inicializaciones.
+
+```java
+public class Estudiante {
+    String nombre;
+    int edad;
+    String carrera;
+    int semestre;
+
+    // Constructor básico
+    public Estudiante(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    // Constructor con carrera
+    public Estudiante(String nombre, int edad, String carrera) {
+        this(nombre, edad); // Reutiliza el constructor básico
+        this.carrera = carrera;
+    }
+
+    // Constructor completo
+    public Estudiante(String nombre, int edad, String carrera, int semestre) {
+        this(nombre, edad, carrera); // Reutiliza el constructor con carrera
+        this.semestre = semestre;
+    }
+
+    // Método para mostrar detalles
+    public void mostrarDetalles() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad);
+        System.out.println("Carrera: " + (carrera != null ? carrera : "No especificada"));
+        System.out.println("Semestre: " + (semestre != 0 ? semestre : "No especificado"));
+    }
+}
+```
+
+## Ejercicio 10: Clase CuentaBancaria
+Crear una clase CuentaBancaria con sobrecarga de métodos para realizar depósitos y retiros con distintos parámetros.
+
+``` java
+public class CuentaBancaria {
+    double saldo;
+
+    // Constructor
+    public CuentaBancaria(double saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    // Método para depositar en la misma moneda
+    public void depositar(double cantidad) {
+        saldo += cantidad;
+        System.out.println("Depósito realizado. Saldo actual: " + saldo);
+    }
+
+    // Método para depositar en otra moneda (USD a MXN)
+    public void depositar(double cantidad, String moneda) {
+        if (moneda.equals("USD")) {
+            saldo += cantidad * 20; // Suponiendo 1 USD = 20 MXN
+            System.out.println("Depósito en USD realizado. Saldo actual: " + saldo);
+        } else {
+            saldo += cantidad;
+            System.out.println("Depósito realizado. Saldo actual: " + saldo);
+        }
+    }
+
+    // Método para retirar en la misma moneda
+    public void retirar(double cantidad) {
+        if (cantidad <= saldo) {
+            saldo -= cantidad;
+            System.out.println("Retiro realizado. Saldo actual: " + saldo);
+        } else {
+            System.out.println("Fondos insuficientes.");
+        }
+    }
+
+    // Método para retirar en otra moneda (USD a MXN)
+    public void retirar(double cantidad, String moneda) {
+        if (moneda.equals("USD")) {
+            double cantidadMXN = cantidad * 20;
+            if (cantidadMXN <= saldo) {
+                saldo -= cantidadMXN;
+                System.out.println("Retiro en USD realizado. Saldo actual: " + saldo);
+            } else {
+                System.out.println("Fondos insuficientes.");
+            }
+        } else {
+            retirar(cantidad); // Reutiliza el método de retiro en la misma moneda
+        }
+    }
+}
+```
+
+## Ejercicio 11: Clase Empleado
+Definir una clase Empleado con diferentes constructores que permitan inicializar el salario y puesto opcionalmente.
+
+```java
+public class Empleado {
+    String nombre;
+    double salario;
+    String puesto;
+
+    // Constructor básico
+    public Empleado(String nombre) {
+        this.nombre = nombre;
+    }
+
+    // Constructor con salario
+    public Empleado(String nombre, double salario) {
+        this(nombre); // Reutiliza el constructor básico
+        this.salario = salario;
+    }
+
+    // Constructor completo
+    public Empleado(String nombre, double salario, String puesto) {
+        this(nombre, salario); // Reutiliza el constructor con salario
+        this.puesto = puesto;
+    }
+
+    // Método para mostrar detalles
+    public void mostrarDetalles() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Salario: " + (salario != 0 ? salario : "No especificado"));
+        System.out.println("Puesto: " + (puesto != null ? puesto : "No especificado"));
+    }
+}
+```
+
+## Ejercicio 12: Clase Restaurante
+Crear una clase Restaurante con sobrecarga de métodos para manejar reservas con diferente cantidad de parámetros.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Restaurante {
+    String nombre;
+    List<String> reservas;
+
+    // Constructor
+    public Restaurante(String nombre) {
+        this.nombre = nombre;
+        this.reservas = new ArrayList<>();
+    }
+
+    // Método para agregar reserva solo con el nombre del cliente
+    public void agregarReserva(String nombreCliente) {
+        reservas.add("Cliente: " + nombreCliente);
+    }
+
+    // Método para agregar reserva con nombre y hora
+    public void agregarReserva(String nombreCliente, String hora) {
+        reservas.add("Cliente: " + nombreCliente + ", Hora: " + hora);
+    }
+
+    // Método para agregar reserva con nombre, hora y número de personas
+    public void agregarReserva(String nombreCliente, String hora, int numPersonas) {
+        reservas.add("Cliente: " + nombreCliente + ", Hora: " + hora + ", Personas: " + numPersonas);
+    }
+
+    // Método para mostrar todas las reservas
+    public void mostrarReservas() {
+        System.out.println("Reservas en " + nombre + ":");
+        for (String reserva : reservas) {
+            System.out.println(reserva);
+        }
+    }
+}
+```
+
+## Ejercicio 13: Clase Computadora
+Implementar una clase Computadora con distintos constructores para definir su marca, procesador y RAM.
+
+```java
+public class Computadora {
+    String marca;
+    String procesador;
+    int ram;
+
+    // Constructor básico
+    public Computadora(String marca) {
+        this.marca = marca;
+    }
+
+    // Constructor con marca y procesador
+    public Computadora(String marca, String procesador) {
+        this(marca); // Reutiliza el constructor básico
+        this.procesador = procesador;
+    }
+
+    // Constructor completo
+    public Computadora(String marca, String procesador, int ram) {
+        this(marca, procesador); // Reutiliza el constructor con marca y procesador
+        this.ram = ram;
+    }
+
+    // Método para mostrar detalles
+    public void mostrarDetalles() {
+        System.out.println("Marca: " + marca);
+        System.out.println("Procesador: " + (procesador != null ? procesador : "No especificado"));
+        System.out.println("RAM: " + (ram != 0 ? ram + " GB" : "No especificada"));
     }
 }
 ```

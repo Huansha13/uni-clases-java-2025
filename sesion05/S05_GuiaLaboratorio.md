@@ -632,3 +632,142 @@ public class Main {
     }
 }
 ```
+
+En Java, el modificador de acceso protected se utiliza para permitir que los miembros de una clase (como campos, métodos o constructores) sean accesibles dentro del mismo paquete y también por las subclases, incluso si estas subclases están en paquetes diferentes.
+
+Aquí tienes un ejemplo que ilustra el uso de protected:
+
+```java
+// Paquete 1
+package paquete1;
+
+public class ClasePadre {
+    // Campo protegido
+    protected int valorProtegido = 10;
+
+    // Método protegido
+    protected void mostrarValor() {
+        System.out.println("El valor protegido es: " + valorProtegido);
+    }
+}
+```
+
+```java
+// Paquete 2
+package paquete2;
+
+import paquete1.ClasePadre;
+
+public class ClaseHija extends ClasePadre {
+    public void accederProtegido() {
+        // Acceso al campo protegido de la clase padre
+        valorProtegido = 20;
+        System.out.println("Valor protegido modificado en la clase hija: " + valorProtegido);
+
+        // Llamada al método protegido de la clase padre
+        mostrarValor();
+    }
+}
+```
+
+```java
+// Clase principal para probar el ejemplo
+public class Main {
+    public static void main(String[] args) {
+        ClaseHija hija = new ClaseHija();
+        hija.accederProtegido();
+    }
+}
+```
+
+**Explicación**
+
+`ClasePadre`: Tiene un campo valorProtegido y un método `mostrarValor()`, ambos marcados como `protected`.
+
+Esto significa que solo las clases dentro del mismo paquete (paquete1) y las subclases (incluso en otros paquetes) pueden acceder a estos miembros.
+
+`ClaseHija`: Extiende `ClasePadre` y está en un paquete diferente (paquete2).
+
+Puede acceder al campo valorProtegido y al método `mostrarValor()` porque son protected y `ClaseHija` es una subclase de `ClasePadre`.
+
+`Main`: Crea una instancia de `ClaseHija` y llama al método `accederProtegido()`, que a su vez accede y modifica el campo protegido y llama al método protegido de la clase padre.
+
+```
+Salida esperada:
+Valor protegido modificado en la clase hija: 20
+El valor protegido es: 20
+```
+Este ejemplo muestra cómo `protected` permite el acceso a miembros de una clase desde subclases, incluso si están en paquetes diferentes.
+
+--- 
+En Java, el modificador de acceso `protected` no se puede usar en ciertos contextos o situaciones. Aquí te muestro un caso donde no se puede usar `protected` y por qué:
+
+Caso: Miembros de una clase en un contexto no relacionado con herencia o paquete
+Supongamos que tienes una clase `ClaseA` con un miembro protected, y otra clase `ClaseB` que no es una subclase de `ClaseA` y no está en el mismo paquete. En este caso, `ClaseB` no podrá acceder al miembro protected de `ClaseA`.
+
+Ejemplo:
+```java
+// Paquete 1
+package paquete1;
+
+public class ClaseA {
+    // Miembro protegido
+    protected int valorProtegido = 42;
+}
+```
+```java
+// Paquete 2
+package paquete2;
+
+import paquete1.ClaseA;
+
+public class ClaseB {
+    public void intentarAcceder() {
+        ClaseA instanciaA = new ClaseA();
+
+        // Intento de acceso al miembro protegido
+        // Esto generará un error de compilación
+        // System.out.println(instanciaA.valorProtegido); // ERROR
+    }
+}
+```
+
+```java
+// Clase principal para probar el ejemplo
+public class Main {
+    public static void main(String[] args) {
+        ClaseB b = new ClaseB();
+        b.intentarAcceder();
+    }
+}
+```
+**Explicación:**
+
+`ClaseA`: Tiene un campo valorProtegido marcado como protected.
+
+Esto significa que solo es accesible desde:
+- Clases dentro del mismo paquete (paquete1).
+- Subclases de ClaseA, incluso si están en otros paquetes.
+
+`ClaseB`:
+- Está en un paquete diferente (paquete2).
+- No es una subclase de ClaseA.
+- Intenta acceder al campo valorProtegido de una instancia de ClaseA.
+- Esto no está permitido porque ClaseB no cumple con las condiciones para acceder a un miembro protected.
+- Error de compilación:
+- El código en ClaseB generará un error de compilación como:
+
+```
+error: valorProtegido has protected access in ClaseA
+System.out.println(instanciaA.valorProtegido);
+```
+¿Por qué no se puede usar protected en este caso?
+El modificador protected está diseñado para permitir el acceso a miembros de una clase solo desde `subclases` o clases dentro del mismo paquete.
+
+Si una clase no es una `subclase` y no está en el mismo paquete, no puede acceder a miembros protected.
+
+Alternativa:
+Si necesitas que `ClaseB` acceda a `valorProtegido`, tendrías que:
+- Cambiar el modificador de acceso a public (no recomendado si no es necesario).
+- Hacer que `ClaseB` sea una subclase de `ClaseA`.
+- Mover `ClaseB` al mismo paquete que `ClaseA`.

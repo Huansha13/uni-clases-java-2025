@@ -1,5 +1,74 @@
 # Métodos y Variables Estáticos
 
+En Java, la palabra clave `static` se utiliza para definir miembros (variables, métodos, bloques y clases anidadas) que pertenecen a la clase en lugar de a una instancia específica de la clase. Esto significa que los miembros `static` son compartidos por todas las instancias de la clase y pueden ser accedidos sin necesidad de crear un objeto de la clase.
+
+### Variables estáticas (static variables)
+Una variable estática es una variable que pertenece a la clase y no a una instancia específica. Todas las instancias de la clase comparten la misma variable estática.
+
+```java
+public class Contador {
+    public static int contador = 0;
+
+    public Contador() {
+        contador++;
+    }
+}
+```
+En este ejemplo, la variable contador es compartida por todas las instancias de la clase Contador. Cada vez que se crea una nueva instancia, el valor de contador se incrementa.
+
+### Métodos estáticos (static methods)
+Un método estático pertenece a la clase y no a una instancia específica. Puede ser llamado sin necesidad de crear un objeto de la clase.
+
+```java
+public class Matemáticas {
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+Para llamar al método sumar, no es necesario crear una instancia de la clase Matemáticas:
+
+```java
+int resultado = Matemáticas.sumar(5, 3);
+```
+
+### Bloques estáticos (static blocks)
+Un bloque estático es un bloque de código que se ejecuta cuando la clase es cargada en la memoria. Se utiliza para inicializar variables estáticas o realizar alguna configuración inicial.
+
+```java
+public class Ejemplo {
+    static {
+        System.out.println("Bloque estático ejecutado.");
+    }
+}
+```
+### Clases anidadas estáticas (static nested classes)
+Una clase anidada estática es una clase que está definida dentro de otra clase y es estática. No necesita una instancia de la clase externa para ser creada.
+
+```java
+public class Externa {
+    public static class Anidada {
+        public void mostrar() {
+            System.out.println("Clase anidada estática.");
+        }
+    }
+}
+```
+Para crear una instancia de la clase anidada:
+
+```java
+Externa.Anidada anidada = new Externa.Anidada();
+anidada.mostrar();
+```
+Resumen
+- Variables estáticas: Compartidas por todas las instancias de la clase.
+- Métodos estáticos: Pueden ser llamados sin crear una instancia de la clase
+- Bloques estáticos: Se ejecutan cuando la clase es cargada.
+- Clases anidadas estáticas: No necesitan una instancia de la clase externa para ser creadas.
+
+El uso de static es útil cuando quieres que un miembro de la clase sea común a todas las instancias o cuando no necesitas una instancia de la clase para acceder a ese miembro.
+
 ## Ejercicios
 
 ### Ejercicio 1: Creación de un Método Estático

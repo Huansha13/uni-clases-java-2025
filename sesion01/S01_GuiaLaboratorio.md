@@ -130,3 +130,128 @@ public class Operadores {
     }
 }
 ```
+
+## Actividad 5: Calculadora de Edad
+### Enunciado:
+Escribe un programa en Java que solicite al usuario su año de nacimiento y calcule su edad actual.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class CalculadoraEdad {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese su año de nacimiento: ");
+        int anioNacimiento = scanner.nextInt();
+        int anioActual = 2025;
+        int edad = anioActual - anioNacimiento;
+        System.out.println("Su edad actual es: " + edad + " años.");
+        scanner.close();
+    }
+}
+```
+
+## Actividad 6: Área de un Rectángulo
+### Enunciado:
+Escribe un programa en Java que calcule el área de un rectángulo. El usuario debe ingresar la base y la altura.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class AreaRectangulo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la base del rectángulo: ");
+        double base = scanner.nextDouble();
+        System.out.print("Ingrese la altura del rectángulo: ");
+        double altura = scanner.nextDouble();
+        double area = base * altura;
+        System.out.println("El área del rectángulo es: " + area);
+        scanner.close();
+    }
+}
+```
+
+## Actividad 7: Conversor de Temperatura
+### Enunciado:
+Crea un programa en Java que convierta una temperatura ingresada en grados Celsius a Fahrenheit.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class ConversorTemperatura {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la temperatura en Celsius: ");
+        double celsius = scanner.nextDouble();
+        double fahrenheit = (celsius * 9/5) + 32;
+        System.out.println("La temperatura en Fahrenheit es: " + fahrenheit);
+        scanner.close();
+    }
+}
+```
+
+## Actividad 8: Salario Mensual
+### Enunciado:
+Escribe un programa en Java que calcule el salario mensual de un empleado, dado el número de horas trabajadas y el pago por hora.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class SalarioEmpleado {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el número de horas trabajadas: ");
+        int horas = scanner.nextInt();
+        System.out.print("Ingrese el pago por hora: ");
+        double pagoPorHora = scanner.nextDouble();
+        double salario = horas * pagoPorHora;
+        System.out.println("El salario mensual es: " + salario);
+        scanner.close();
+    }
+}
+```
+
+## Actividad 9: Verificación de Número Par o Impar
+### Enunciado:
+Escribe un programa en Java que determine si un número ingresado por el usuario es par o impar.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class ParImpar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número: ");
+        int numero = scanner.nextInt();
+        if (numero % 2 == 0) {
+            System.out.println("El número " + numero + " es par.");
+        } else {
+            System.out.println("El número " + numero + " es impar.");
+        }
+        scanner.close();
+    }
+}
+```
+
+# Ejercicios
+
+### Ejercicio 1: Cálculo del Perímetro de un Círculo
+Crea un programa que solicite el radio de un círculo y calcule su perímetro.
+
+### Ejercicio 2: Conversión de Minutos a Horas
+Escribe un programa que tome un número de minutos ingresado por el usuario y lo convierta a horas y minutos.
+
+### Ejercicio 3: Comparación de Números
+Solicita al usuario dos números y muestra cuál es el mayor o si son iguales.
+
+### Ejercicio 4: Cálculo de Descuento
+Crea un programa que solicite el precio de un producto y aplique un 10% de descuento.
+
+### Ejercicio 5: Promedio de Notas
+Escribe un programa que permita ingresar tres notas y calcule el promedio final.

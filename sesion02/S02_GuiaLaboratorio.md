@@ -229,3 +229,158 @@ public class MenuInteractivo {
 ```
 
 **Resultado Esperado:** El menú permite realizar las operaciones seleccionadas hasta que el usuario elija salir.
+
+## Actividad 6: Verificación de Mayoría de Edad
+
+Escribe un programa en Java que solicite la edad del usuario y determine si es mayor o menor de edad.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class MayorDeEdad {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese su edad: ");
+        int edad = scanner.nextInt();
+        
+        if (edad >= 18) {
+            System.out.println("Eres mayor de edad.");
+        } else {
+            System.out.println("Eres menor de edad.");
+        }
+        
+        scanner.close();
+    }
+}
+```
+
+## Actividad 7: Calculadora Simple
+
+Crea un programa que solicite dos números y una operación (+, -, *, /) y realice la operación correspondiente.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class Calculadora {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el primer número: ");
+        double num1 = scanner.nextDouble();
+        System.out.print("Ingrese el segundo número: ");
+        double num2 = scanner.nextDouble();
+        System.out.print("Ingrese la operación (+, -, *, /): ");
+        char operacion = scanner.next().charAt(0);
+        
+        double resultado;
+        switch (operacion) {
+            case '+': resultado = num1 + num2; break;
+            case '-': resultado = num1 - num2; break;
+            case '*': resultado = num1 * num2; break;
+            case '/': resultado = (num2 != 0) ? num1 / num2 : Double.NaN; break;
+            default: System.out.println("Operación no válida"); return;
+        }
+        
+        System.out.println("El resultado es: " + resultado);
+        scanner.close();
+    }
+}
+```
+
+## Actividad 8: Contador de Números Pares
+
+Crea un programa que imprima los números pares del 1 al 20 usando una estructura repetitiva.
+
+### Solución:
+```java
+public class ContadorPares {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i);
+            }
+        }
+    }
+}
+```
+
+## Actividad 9: Menú Interactivo
+
+Crea un programa que muestre un menú interactivo con opciones para sumar, restar o salir del programa usando `switch`.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class MenuInteractivo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+        
+        do {
+            System.out.println("\nMenú de opciones:");
+            System.out.println("1. Sumar");
+            System.out.println("2. Restar");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
+            
+            if (opcion == 1 || opcion == 2) {
+                System.out.print("Ingrese el primer número: ");
+                int num1 = scanner.nextInt();
+                System.out.print("Ingrese el segundo número: ");
+                int num2 = scanner.nextInt();
+                
+                if (opcion == 1) {
+                    System.out.println("Resultado: " + (num1 + num2));
+                } else {
+                    System.out.println("Resultado: " + (num1 - num2));
+                }
+            }
+        } while (opcion != 3);
+        
+        System.out.println("Programa finalizado.");
+        scanner.close();
+    }
+}
+```
+
+# Ejercicios
+
+### Ejercicio 1: Determinar si un número es positivo, negativo o cero
+Escribe un programa que pida un número y determine si es positivo, negativo o cero.
+
+### Ejercicio 2: Tabla de Multiplicar
+Crea un programa que solicite un número y muestre su tabla de multiplicar hasta el 10.
+
+### Ejercicio 3: Contador de Números Impares
+Escribe un programa que imprima los números impares del 1 al 15 usando un bucle.
+
+### Ejercicio 4: Calculadora de Descuento
+Solicita el precio de un producto y el porcentaje de descuento, luego muestra el precio final.
+
+### Ejercicio 5: Contador de Vocales
+Crea un programa que solicite una palabra y cuente cuántas vocales tiene.
+
+### Ejercicio 6: Secuencia Fibonacci
+Escribe un programa que muestre los primeros 10 números de la secuencia de Fibonacci.
+
+### Ejercicio 7: Cálculo del Perímetro de un Círculo
+Escribe un programa en Java que solicite el radio de un círculo y calcule su perímetro.
+
+### Solución:
+```java
+import java.util.Scanner;
+
+public class PerimetroCirculo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el radio del círculo: ");
+        double radio = scanner.nextDouble();
+        double perimetro = 2 * Math.PI * radio;
+        System.out.println("El perímetro del círculo es: " + perimetro);
+        scanner.close();
+    }
+}
+```
