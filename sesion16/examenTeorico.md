@@ -59,3 +59,4 @@ d) Para enviar correos
 **Respuesta correcta:** b) Para conectarse a una base de datos
 
 ---
+.
